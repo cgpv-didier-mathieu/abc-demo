@@ -54,6 +54,8 @@ public class Lanceur : MonoBehaviour
     {
         if (autreObjet.TryGetComponent(out EnnemiFactice ennemi))
         {
+            Debug.Log("Un ennemi est entré dans la zone de la tour : " + ennemi.name);
+
             cibles.Add(ennemi);
 
             // Aucune cible n'est actuellement attaquée, on attaque la première cible qui entre dans la zone
@@ -73,6 +75,8 @@ public class Lanceur : MonoBehaviour
     {
         if (autreObjet.TryGetComponent(out EnnemiFactice ennemi))
         {
+            Debug.Log("Un ennemi est sorti de la zone de la tour : " + ennemi.name);
+
             cibles.Remove(ennemi);
 
             // La cible attaquée sort de la zone, on passe à la prochaine cible si elle existe
