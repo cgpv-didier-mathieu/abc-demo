@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// Génère des ennemis à intervalles réguliers et les place dans la scène.
@@ -36,6 +37,10 @@ public class GenerateurEnnemis : MonoBehaviour
 
     // Liste des ennemis générés dans la scène
     private List<Ennemi> instancesEnnemis;
+
+    #region Evenements
+    public Action<Ennemi> EnnemiRecycle;
+    #endregion
 
     private void Start()
     {
@@ -104,5 +109,6 @@ public class GenerateurEnnemis : MonoBehaviour
     {
         instancesEnnemis.Add(ennemi);
         ennemi.gameObject.SetActive(false);
+        EnnemiRecycle?.Invoke(ennemi);
     }
 }

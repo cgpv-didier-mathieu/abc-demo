@@ -102,4 +102,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lanceur
   prefabProjectile: {fileID: 4179487228877846444, guid: 52b35375793633b478361a2e3f2fb42e, type: 3}
-  delaiAttaque: 0
+  delaiAttaque: 1

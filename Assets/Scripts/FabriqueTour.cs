@@ -10,21 +10,21 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class FabriqueTour : MonoBehaviour
 {
-    [SerializeField, Tooltip("Le prefab de la tour à instancier")]
-    private GameObject prefabTour;
-
     [SerializeField, Tooltip("Référence aux zones de construction de tour")]
     private List<GameObject> zoneConstructions;
-
-    /// <summary>
-    /// L'instance de la tour en cours de placement. 
-    /// </summary>
-    private GameObject tourEnPlacement;
 
     /// <summary>
     /// Alias pour accès rapide au singleton du contrôleur de jeu.
     /// </summary>
     private ControleurJeu controleurJeu;
+
+    [SerializeField, Tooltip("Le prefab de la tour à instancier")]
+    private Tour prefabTour;
+
+    /// <summary>
+    /// L'instance de la tour en cours de placement. 
+    /// </summary>
+    private Tour tourEnPlacement;
 
     private void Start()
     {
@@ -135,6 +135,7 @@ public class FabriqueTour : MonoBehaviour
 
                 // Positionne la tour à l'emplacement de la zone de construction.
                 tourEnPlacement.transform.position = zone.transform.position;
+                tourEnPlacement.Placer();
 
                 // Mets fin au placement de la tour et désactive les zones de construction.
                 tourEnPlacement = null;
@@ -155,7 +156,7 @@ public class FabriqueTour : MonoBehaviour
     {
         if (tourEnPlacement != null)
         {
-            Destroy(tourEnPlacement);
+            Destroy(tourEnPlacement.gameObject);
             tourEnPlacement = null;
         }
 

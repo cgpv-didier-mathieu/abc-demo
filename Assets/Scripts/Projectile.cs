@@ -6,7 +6,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     // Cible que le projectile doit atteindre
-    private GameObject cible;
+    private Ennemi cible;
 
     [SerializeField, Tooltip("Vitesse du projectile en m/s")]
     private float vitesse = 5.0f;
@@ -15,6 +15,9 @@ public class Projectile : MonoBehaviour
     private float tempsVieMaximal = 5.0f;
 
     private float tempsVie;
+
+    // Dégâts infligés par le projectile
+    private float degats;
 
     private void Awake()
     {
@@ -27,9 +30,11 @@ public class Projectile : MonoBehaviour
     /// <param name="cible">La cible que le projectile doit atteindre</param>
     /// <param name="positionInitiale">La position initiale du projectile</param>
     /// <param name="rotationInitiale">La rotation initiale du projectile</param>
-    public void Initialiser(GameObject cible, Vector3 positionInitiale, Quaternion rotationInitiale)
+    /// <param name="degats">Les dégâts infligés par le projectile</param>
+    public void Initialiser(Ennemi cible, Vector3 positionInitiale, Quaternion rotationInitiale, float degats)
     {
         this.cible = cible;
+        this.degats = degats;
         transform.SetPositionAndRotation(positionInitiale, rotationInitiale);
     }
 
@@ -59,9 +64,9 @@ public class Projectile : MonoBehaviour
     {
         if (autre.gameObject == cible)
         {
-            // Logique de dégâts ou d'effet sur la cible
-            Debug.Log("Projectile a touché la cible : " + cible.name);
-            Destroy(gameObject); // Détruire le projectile après l'impact
+            // Logique de dégâts à implémenter dans l'ennemi
+            cible.RecevoirDegats(degats);
+            PoolProjectiles.Instance.RecyclerProjectile(this);
         }
     }
 }
