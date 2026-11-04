@@ -8,10 +8,10 @@ using UnityEngine;
 public class Lanceur : MonoBehaviour
 {
     // Liste des cibles à portée
-    private List<EnnemiFactice> cibles;
+    private List<Ennemi> cibles;
 
     // Cible actuellement attaquée par la tour
-    private EnnemiFactice cibleActive;
+    private Ennemi cibleActive;
 
     [SerializeField, Tooltip("Prefab du projectile de la tour")]
     private Projectile prefabProjectile;
@@ -21,7 +21,7 @@ public class Lanceur : MonoBehaviour
 
     private void Awake()
     {
-        cibles = new List<EnnemiFactice>();
+        cibles = new List<Ennemi>();
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ public class Lanceur : MonoBehaviour
     /// <param name="autreObjet">Le collider de l'objet entrant</param>
     private void OnTriggerEnter(Collider autreObjet)
     {
-        if (autreObjet.TryGetComponent(out EnnemiFactice ennemi))
+        if (autreObjet.TryGetComponent(out Ennemi ennemi))
         {
             Debug.Log("Un ennemi est entré dans la zone de la tour : " + ennemi.name);
 
@@ -73,7 +73,7 @@ public class Lanceur : MonoBehaviour
     /// <param name="autreObjet">Le collider de l'objet sortant</param>
     private void OnTriggerExit(Collider autreObjet)
     {
-        if (autreObjet.TryGetComponent(out EnnemiFactice ennemi))
+        if (autreObjet.TryGetComponent(out Ennemi ennemi))
         {
             Debug.Log("Un ennemi est sorti de la zone de la tour : " + ennemi.name);
 

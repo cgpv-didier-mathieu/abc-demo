@@ -101,5 +101,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af21c102f00e8e5439d005dab646513a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lanceur
-  prefabProjectile: {fileID: 0}
+  prefabProjectile: {fileID: 4179487228877846444, guid: 52b35375793633b478361a2e3f2fb42e, type: 3}
   delaiAttaque: 0

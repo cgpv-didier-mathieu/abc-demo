@@ -14,6 +14,9 @@ public class ControleurJeu : MonoBehaviour
     [field: SerializeField, Tooltip("Référence à la caméra principale")]
     public Camera CameraPrincipale { get; private set; }
 
+    [field: SerializeField, Tooltip("Référence au générateur d'ennemis")]
+    public GenerateurEnnemis GenerateurEnnemis { get; private set; }
+
     private void Awake()
     {
         if (Instance == null)
