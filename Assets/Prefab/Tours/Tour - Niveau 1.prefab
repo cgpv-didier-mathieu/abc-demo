@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &322865638787727495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7342714210046391136}
-  m_Layer: 0
-  m_Name: Modele
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7342714210046391136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322865638787727495}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1829615653444933422}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1852079308154795012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,13 +146,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1252142475553096775}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7342714210046391136}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6217667083897421377}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 826021757578381210}
   m_SourcePrefab: {fileID: 100100000, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
 --- !u!1 &1310487098446581140 stripped
 GameObject:
@@ -203,8 +172,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tour
   <Lanceur>k__BackingField: {fileID: 1526003152624079684}
-  niveauTour: {fileID: 0}
+  niveauTour: {fileID: 11400000, guid: 000934b9de299164f91d23e6d258ede4, type: 2}
   conteneurModele: {fileID: 0}
+--- !u!65 &826021757578381210
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310487098446581140}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0707107, y: 2.3, z: 1.0707107}
+  m_Center: {x: 0, y: 1.15, z: 0}
 --- !u!4 &1829615653444933422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa35229a70b35af43a5d2d8090568946, type: 3}
