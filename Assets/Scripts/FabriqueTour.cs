@@ -26,6 +26,8 @@ public class FabriqueTour : MonoBehaviour
     /// </summary>
     private Tour tourEnPlacement;
 
+    private int compteurTours;
+
     private void Start()
     {
         controleurJeu = ControleurJeu.Instance;
@@ -136,6 +138,8 @@ public class FabriqueTour : MonoBehaviour
                 // Positionne la tour à l'emplacement de la zone de construction.
                 tourEnPlacement.transform.position = zone.transform.position;
                 tourEnPlacement.Placer();
+                compteurTours++;
+                tourEnPlacement.Nommer($"Tour {compteurTours}");
 
                 // Mets fin au placement de la tour et désactive les zones de construction.
                 tourEnPlacement = null;
