@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f25525bd6091647a2f300fa2e5ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  vitesse: 5
-  tempsVieMaximal: 5
+  vitesse: 9
+  tempsVieMaximal: 2.5

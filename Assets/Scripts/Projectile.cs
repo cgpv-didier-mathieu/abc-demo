@@ -35,6 +35,7 @@ public class Projectile : MonoBehaviour
     {
         this.cible = cible;
         this.degats = degats;
+        tempsVie = 0f;
         transform.SetPositionAndRotation(positionInitiale, rotationInitiale);
     }
 
@@ -44,6 +45,7 @@ public class Projectile : MonoBehaviour
         if (tempsVie > tempsVieMaximal)
         {
             PoolProjectiles.Instance.RecyclerProjectile(this);
+            return;
         }
 
         if (cible != null)
@@ -62,9 +64,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider autre)
     {
-        if (autre.gameObject == cible)
+        if (cible != null && autre.gameObject == cible.gameObject)
         {
-            // Logique de dégâts à implémenter dans l'ennemi
             cible.RecevoirDegats(degats);
             PoolProjectiles.Instance.RecyclerProjectile(this);
         }

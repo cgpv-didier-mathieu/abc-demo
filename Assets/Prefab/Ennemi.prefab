@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940b9971b2eda4b44a33c30c52d555b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ennemi
-  vieMaximale: 0
+  vieMaximale: 6
   barreVie: {fileID: 4451280895058100530}
 --- !u!54 &5519348619008076455
 Rigidbody:
