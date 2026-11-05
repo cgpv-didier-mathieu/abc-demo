@@ -26,8 +26,27 @@ public class AfficheurTour : MonoBehaviour
     {
         ControleurJeu.Instance.GestionnaireSourisParDefaut.ObjetSelectionne += OnObjetSelectionne;
 
+        // Caché tant qu'aucune tour n'est sélectionnée
+        zoneAffichage.SetActive(false);
+
         // On sait que le parent est un bouton, ce code est habituellement risqué à utiliser
         boutonAmelioration = boutonAmeliorationTexte.transform.parent.GetComponent<Button>();
+    }
+
+    private void OnDestroy()
+    {
+        if (ControleurJeu.Instance != null && ControleurJeu.Instance.GestionnaireSourisParDefaut != null)
+            ControleurJeu.Instance.GestionnaireSourisParDefaut.ObjetSelectionne -= OnObjetSelectionne;
+
+        if (tourAffichee != null)
+            tourAffichee.NiveauChange -= RafraichirTourAffichee;
+    }
+
+    // Met à jour l'affichage quand la tour affichée change de niveau
+    private void RafraichirTourAffichee()
+    {
+        if (tourAffichee != null)
+            AfficherTour(tourAffichee);
     }
 
     /// <summary>
@@ -37,11 +56,16 @@ public class AfficheurTour : MonoBehaviour
     /// <param name="nouvelleSelection">Le nouvel objet sélectionné</param>
     public void OnObjetSelectionne(GameObject _, GameObject nouvelleSelection)
     {
+        // On cesse d'écouter l'ancienne tour
+        if (tourAffichee != null)
+            tourAffichee.NiveauChange -= RafraichirTourAffichee;
+
         if (nouvelleSelection != null && nouvelleSelection.TryGetComponent(out Tour tour))
         {
             zoneAffichage.SetActive(true);
-            AfficherTour(tour);
             tourAffichee = tour;
+            tourAffichee.NiveauChange += RafraichirTourAffichee;
+            AfficherTour(tour);
         }
         else
         {
@@ -80,6 +104,6 @@ public class AfficheurTour : MonoBehaviour
         }
 
         // Met à jour le texte du nom de la tour
-        nomTourTexte.text = tour != null ? tour.NomTour : "NULL";
+        nomTourTexte.text = string.IsNullOrEmpty(tour.NomTour) ? "Tour" : tour.NomTour;
     }
 }

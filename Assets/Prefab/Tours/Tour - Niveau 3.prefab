@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tour - Niveau 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fe78123a92ddb34d8a2a52614e4bc78, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -232,5 +236,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tour
   <Lanceur>k__BackingField: {fileID: 2081115559685900106}
-  <Degats>k__BackingField: 4
-  <DelaiAttaque>k__BackingField: 1
+  niveauTour: {fileID: 0}
+  conteneurModele: {fileID: 0}

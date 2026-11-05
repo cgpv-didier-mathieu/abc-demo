@@ -43,6 +43,14 @@ public class Tour : MonoBehaviour
 
     private void Awake()
     {
+        // Filet de sécurité : si le champ n'est pas assigné dans le prefab, on charge le niveau 1
+        if (niveauTour == null)
+        {
+            niveauTour = Resources.Load<NiveauTour>("Niveaux/NiveauTour1");
+            if (niveauTour == null)
+                Debug.LogError($"{name} : niveauTour non assigné et Resources/Niveaux/NiveauTour1 introuvable.");
+        }
+
         ciblesPotentielles = new List<Ennemi>();
         TempsDepuisDerniereAttaque = 0f;
         EstPlacee = false;

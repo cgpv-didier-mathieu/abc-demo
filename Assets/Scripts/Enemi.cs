@@ -45,6 +45,9 @@ public class Ennemi : MonoBehaviour
 
     public void RecevoirDegats(float degats)
     {
+        // Déjà recyclé (ex. deux projectiles dans la même frame)
+        if (!gameObject.activeInHierarchy) return;
+
         vieActuelle -= degats;
         barreVie.MettreAJourProgression(vieActuelle / vieMaximale);
 

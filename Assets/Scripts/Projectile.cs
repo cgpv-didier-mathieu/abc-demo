@@ -42,7 +42,8 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         // Détruire le projectile s'il dépasse son temps de vie maximal
-        if (tempsVie > tempsVieMaximal)
+        // ...ou si sa cible a été recyclée (désactivée) entre-temps
+        if (tempsVie > tempsVieMaximal || (cible != null && !cible.gameObject.activeInHierarchy))
         {
             PoolProjectiles.Instance.RecyclerProjectile(this);
             return;
